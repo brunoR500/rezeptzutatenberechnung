@@ -1,0 +1,81 @@
+{% extends 'zutatenberechner/base.html' %} 
+
+{% block title %} 
+Berechner - Zutatenberechner
+{%endblock title%} 
+
+{%load static %}
+
+{% block styles %}
+<link
+	rel="stylesheet"
+	href="{% static '/zutatenberechner/vendor/searchfield/searchfield.css' %}"
+/>
+{% endblock %} 
+
+{% block content %} 
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 pt-4">
+			<div class="input-group mb-3">
+				<div class="autocomplete" id="autocomplete">
+					<input
+						autocomplete="off"
+						type="text"
+						name="name"
+						maxlength="100"
+						required=""
+						id="searchfield"
+						placeholder="Rezept suchen"
+					/>
+				</div>
+				<div class="input-group-append">
+					<button class="btn btn-primary" id="addButton" type="button">
+						Hinzufügen
+					</button>
+				</div>
+			</div>
+			<span id="notFound" style="visibility: hidden" class="badge badge-danger"
+				>Rezept nicht vorhanden!</span
+			>
+		</div>
+		<div class="col-sm-6 pt-4">
+            <a href="{% url 'create_recipe'%}" class="btn btn-primary btn-lg" role="button">
+				<small>Rezept erstellen</small></a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 pt-4">
+			<table class="table table-sm table-striped table-bordered table-dark">
+				<thead>
+					<tr>
+						<th>Rezepte</th>
+						<th>Portionen</th>
+						<th>Löschen</th>
+					</tr>
+				</thead>
+				<tbody id="recipeTable"></tbody>
+			</table>
+		</div>
+		<div class="col-sm-6 pt-4">
+			<table class="table table-sm table-striped table-bordered table-dark">
+				<thead>
+					<tr>
+						<th>Zutaten</th>
+						<th>Menge</th>
+						<th>Einheit</th>
+					</tr>
+				</thead>
+				<tbody id="ingredientsTable"></tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock content %} 
+
+{% block javascript %}
+<script src="{% static '/zutatenberechner/vendor/searchfield/searchfield.js' %}"></script>
+<script src="{% static '/zutatenberechner/js/calculator.js' %}"></script>
+{% endblock javascript %}
