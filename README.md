@@ -14,3 +14,5 @@ The user must add existing recipes or create his own.
 - Trello
 - Selenium
 - JSON
+
+Project documentation - [Link](https://drive.google.com/file/d/1iy-bGuMV1rwFLm572l1TOBkA_lkg77Zh/view?usp=sharing)
